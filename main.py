@@ -1,9 +1,12 @@
+#requirments to import 
 from kivy.app import App
 from kivy.uix.widget import Widget
 from kivy.properties import NumericProperty,ReferenceListProperty,ObjectProperty
 from kivy.vector import Vector
 from kivy.clock import Clock
 from random import randint
+
+
 
 class PongPaddle(Widget):
     score = NumericProperty(0)
@@ -27,7 +30,9 @@ class PongGame(Widget):
 
     ball = ObjectProperty(None)
     player1 = ObjectProperty(None)
+    #player 1 
     player2 = ObjectProperty(None)
+    #player 2
 
     #velocity of ball initially
     def serve_ball(self):
@@ -41,12 +46,12 @@ class PongGame(Widget):
         if(self.ball.y < 0) or (self.ball.y > self.height -50):
             self.ball.velocity_y *= -1
 
-        #bouce off left
+        #bounce to left feature 
         if self.ball.x < 0:
             self.ball.velocity_x *= -1
             self.player2.score += 1
 
-        #bounce off right
+        #bounce off right feature 
         if self.ball.x > self.width -50:
             self.ball.velocity_x *= -1
             self.player1.score += 1
@@ -65,7 +70,8 @@ class PongApp(App):
     def build(self):
         game = PongGame()
         game.serve_ball()
-        Clock.schedule_interval(game.update,1.0 / 60.0)
+        Clock.schedule_interval(game.update,1.0 / 70.0)
+        #this line defines the framerate of the screen .
         return game
 
 PongApp().run()
