@@ -12,7 +12,7 @@
 - Light weight in nature
 - Faster game paly
 
-**Free Software, Hell Yeah!**
+**Free Open Source Software, Hell Yeah!**
 
 # Contributor list:
 
